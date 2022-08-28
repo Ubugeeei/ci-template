@@ -1,3 +1,11 @@
-#!/bin/sh
-cargo fmt --check
+#!/bin/bash
+# if [ `cargo fmt --check` == '' ] ; then
+#     exit 0
+# else
+#     echo -e "[\e[31merror\e[m]: Formatting errors found."
+#     exit 1
+# fi
+
+cargo fmt --all --check
+cargo fmt
 cargo clippy --all-targets --all-features -- -D warnings
